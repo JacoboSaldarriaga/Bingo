@@ -8,13 +8,19 @@ $( document ).ready(function() {
 
   // Main Raffle function.
   function raffle() {
-    let num = randomNumVerification();
-    animateDisplay();
-    changeDisplay(num);
+    let [num, groupedNum] = randomNumVerification();
+    changeDisplay(groupedNum);
     changeChosenStyle(num);
   }
 
   // Number functions.
+  function randomNumVerification() {
+    let num = getRandomChar('normal');
+    let groupedNum = assignGroup(num);
+    
+    return [num, groupedNum];
+  }
+
   function getRandomChar(mode) {
     let num = 0
     if (mode == 'normal') {
@@ -36,26 +42,17 @@ $( document ).ready(function() {
     return num;
   }
 
-  function randomNumVerification() {
-    let num = getRandomChar('normal');
-    let groupNum = assignGroup(num);
-    console.log(`${num} -> ${groupNum}`);
-    
-    return num;
-  }
-
   function assignGroup(num) {
     let row = $(`#table-${num}`).parent().attr('data-letter');
-    let groupNum = row + num;
+    if (num.toString().length == 1) {
+      num = 0 + num.toString();
+    }
+    let groupedNum = row + num;
 
-    return groupNum;
+    return groupedNum;
   }
 
-  // Change Frond End.
-  function changeChosenStyle(num) {
-    
-  }
-
+  // Change and animate display.
   function changeDisplay(num) {
     let separatedCharacters = splitNum(num)
     animateDisplay(separatedCharacters);
@@ -66,7 +63,7 @@ $( document ).ready(function() {
     return separatedCharacters;
   }
 
-  function animateDisplay(threeCharacters) {
+  function animateDisplay(threeCharacters = []) {
     const startTime = Date.now();
     const duration = 3000; // Animation duration in milliseconds
 
@@ -76,6 +73,7 @@ $( document ).ready(function() {
 
       if (elapsedTime < duration) {
         displayBoxes.forEach((box) => {
+          // Depending on the container, roll for different values.
           if (box.id == 'display-letter') {
             box.innerText = getRandomChar('letter');
           } else if (box.id == 'display-number-one') {
@@ -94,6 +92,13 @@ $( document ).ready(function() {
     }
 
     updateCharContainers();
+  }
+
+  // Change style of board.
+  function changeChosenStyle(num) {
+    setTimeout(function () {
+      $(`#table-${num}`).toggleClass('is-active');
+    }, 3100)
   }
 
   // Action buttons
