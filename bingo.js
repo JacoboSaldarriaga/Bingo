@@ -1,10 +1,12 @@
+// Initial variables
+const letterList = ['B', 'I', 'N', 'G', 'O'];
+let numbersInPlay = [];
+
 $( document ).ready(function() {
   console.log( "document loaded" );
 
-  // Initial variables
-  const letterList = ['B', 'I', 'N', 'G', 'O'];
+  // Selecting display containers.
   const displayBoxes = document.querySelectorAll('.display-character span');
-  console.log(displayBoxes);
 
   // Main Raffle function.
   function raffle() {
@@ -21,10 +23,19 @@ $( document ).ready(function() {
     return [num, groupedNum];
   }
 
+  function isNumberInPlay(num, numbersInPlay) {
+    return numbersInPlay.includes(num);
+  }
+
   function getRandomChar(mode) {
     let num = 0
     if (mode == 'normal') {
       num = 1 + Math.floor(Math.random() * 75);
+      if (isNumberInPlay(num, numbersInPlay)) {
+        num = getRandomChar(mode);
+      } else {
+        numbersInPlay.push(num);
+      }
     } 
     
     if (mode == 'letter') {
@@ -38,7 +49,6 @@ $( document ).ready(function() {
     if (mode == 'secondNum') {
       num = Math.floor(Math.random() * 10);
     }
-
     return num;
   }
 
@@ -120,35 +130,3 @@ $( window ).on( "load", function() {
   }
   fillCacheNums();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-// const Bingobject = {
-//   // Properties.
-//   cache     : "",
-//   currNum   : "",
-//   lastNum   : "",
-
-//   // RAFFLE TIME LET'SA GO ! ! !
-//   RAFFLE    : function () {
-    
-//   },
-
-//   // Cache functions.
-//   getCache  : function () {
-    
-//   },
-//   setCache  : function () {
-    
-//   },
-// }
-
