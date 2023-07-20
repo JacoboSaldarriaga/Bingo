@@ -12,14 +12,14 @@
 
     <!-- Displays the random Bingo coordinate -->
     <div id="bingo-display">
-      <div id="display-letter" class="display-character">
-        #
+      <div class="display-character">
+        <span id="display-letter">#</span>
       </div>
-      <div id="display-number-one" class="display-character">
-        #
+      <div class="display-character">
+        <span id="display-number-one">#</span>
       </div>
-      <div id="display-number-two" class="display-character">
-        #
+      <div class="display-character">
+        <span id="display-number-two">#</span>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
     <div id="bingo-table">
       <div id="table-body">
         <!-- B Row -->
-        <div id="bingo-B" class="table-tr">
+        <div id="bingo-B" class="table-tr" data-letter="B">
           <div id="table-B" class="table-cell table-th">B</div>
           <!-- div#table-$.table-cell.table-td{$$}*15 -->
           <div id="table-1" class="table-cell table-td">01</div>
@@ -47,7 +47,7 @@
           <div id="table-15" class="table-cell table-td">15</div>
         </div>
         <!-- I Row -->
-        <div id="bingo-I" class="table-tr">
+        <div id="bingo-I" class="table-tr" data-letter="I">
           <div id="table-I" class="table-cell table-th">I</div>
           <!-- div#table-$@16.table-cell.table-td{$$@16}*15 -->
           <div id="table-16" class="table-cell table-td">16</div>
@@ -67,7 +67,7 @@
           <div id="table-30" class="table-cell table-td">30</div>
         </div>
         <!-- N Row -->
-        <div id="bingo-N" class="table-tr">
+        <div id="bingo-N" class="table-tr" data-letter="N">
           <div id="table-N" class="table-cell table-th">N</div>
           <!-- div#table-$@31.table-cell.table-td{$$@31}*15 -->
           <div id="table-31" class="table-cell table-td">31</div>
@@ -87,7 +87,7 @@
           <div id="table-45" class="table-cell table-td">45</div>
         </div>
         <!-- G Row -->
-        <div id="bingo-G" class="table-tr">
+        <div id="bingo-G" class="table-tr" data-letter="G">
           <div id="table-G" class="table-cell table-th">G</div>
           <!-- div#table-$@46.table-cell.table-td{$$@46}*15 -->
           <div id="table-46" class="table-cell table-td">46</div>
@@ -107,7 +107,7 @@
           <div id="table-60" class="table-cell table-td">60</div>
         </div>
         <!-- O Row -->
-        <div id="bingo-O" class="table-tr">
+        <div id="bingo-O" class="table-tr" data-letter="O">
           <div id="table-O" class="table-cell table-th">O</div>
           <!-- div#table-$@61.table-cell.table-td{$$@61}*15 -->
           <div id="table-61" class="table-cell table-td">61</div>
