@@ -141,9 +141,11 @@ $( document ).ready(function() {
       changeChosenStyle(num, 0);
     })
   }
-  if (typeof localStorage.getItem('NumbersInPlay') !== null) {
+  console.log(typeof localStorage.getItem('NumbersInPlay'))
+  if (typeof localStorage.getItem('NumbersInPlay') != 'object' && typeof localStorage.getItem('NumbersInPlay') != null) {
     fillCacheNums();
   }
+
 });
 
 $( window ).on( "load", function() {
