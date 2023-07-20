@@ -27,6 +27,16 @@ $( document ).ready(function() {
     return numbersInPlay.includes(num);
   }
 
+  function saveNumbers(num) {
+    numbersInPlay.push(num);
+    if (typeof localStorage.getItem('NumbersInPlay') === null) {
+      localStorage.setItem('NumbersInPlay', JSON.stringify(numbersInPlay));
+    } else {
+      JSON.parse(localStorage.getItem('NumbersInPlay'));
+      localStorage.setItem('NumbersInPlay', JSON.stringify(numbersInPlay));
+    }
+  }
+
   function getRandomChar(mode) {
     let num = 0
     if (mode == 'normal') {
@@ -34,7 +44,8 @@ $( document ).ready(function() {
       if (isNumberInPlay(num, numbersInPlay)) {
         num = getRandomChar(mode);
       } else {
-        numbersInPlay.push(num);
+        // Push to localStorage and active array.
+        saveNumbers(num);
       }
     } 
     
@@ -105,28 +116,36 @@ $( document ).ready(function() {
   }
 
   // Change style of board.
-  function changeChosenStyle(num) {
+  function changeChosenStyle(num, time = 3100) {
     setTimeout(function () {
       $(`#table-${num}`).toggleClass('is-active');
-    }, 3100)
+    }, time)
   }
 
   // Action buttons
   $('#btn-clear').dblclick(() => {
     localStorage.clear();
+    numbersInPlay = [];
+    $('.is-active').toggleClass('is-active');
   });
 
   $('#btn-raffle').click(() => {
     raffle();
   });
 
+  // Fill numbers on page load.
+  function fillCacheNums() {
+    const localNumbers = JSON.parse(localStorage.getItem('NumbersInPlay'));
+    numbersInPlay = localNumbers;
+    localNumbers.forEach((num) => {
+      changeChosenStyle(num, 0);
+    })
+  }
+  if (typeof localStorage.getItem('NumbersInPlay') !== null) {
+    fillCacheNums();
+  }
 });
 
 $( window ).on( "load", function() {
   console.log( "window loaded" );
-
-  function fillCacheNums() {
-    
-  }
-  fillCacheNums();
 });
