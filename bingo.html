@@ -2,8 +2,128 @@
 <html>
   <head>
     <title>BINGO - David</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="bingo.js"></script>
+    <link rel="stylesheet" href="bingo.css">
   </head>
   <body>
+    <!-- Displays the random Bingo coordinate -->
+    <div id="bingo-display">
+      <div id="display-letter" class="display-character">
+        B
+      </div>
+      <div id="display-number-one" class="display-character">
+        3
+      </div>
+      <div id="display-number-two" class="display-character">
+        7
+      </div>
+    </div>
 
+    <!-- Bingo Table Board -->
+    <div id="bingo-table">
+      <div id="table-body">
+        <!-- B Row -->
+        <div id="bingo-B" class="table-tr">
+          <div id="table-B" class="table-cell table-th">B</div>
+          <!-- div#table-$.table-cell.table-td{$$}*15 -->
+          <div id="table-1" class="table-cell table-td">01</div>
+          <div id="table-2" class="table-cell table-td">02</div>
+          <div id="table-3" class="table-cell table-td">03</div>
+          <div id="table-4" class="table-cell table-td">04</div>
+          <div id="table-5" class="table-cell table-td">05</div>
+          <div id="table-6" class="table-cell table-td">06</div>
+          <div id="table-7" class="table-cell table-td">07</div>
+          <div id="table-8" class="table-cell table-td">08</div>
+          <div id="table-9" class="table-cell table-td">09</div>
+          <div id="table-10" class="table-cell table-td">10</div>
+          <div id="table-11" class="table-cell table-td">11</div>
+          <div id="table-12" class="table-cell table-td">12</div>
+          <div id="table-13" class="table-cell table-td">13</div>
+          <div id="table-14" class="table-cell table-td">14</div>
+          <div id="table-15" class="table-cell table-td">15</div>
+        </div>
+        <!-- I Row -->
+        <div id="bingo-I" class="table-tr">
+          <div id="table-I" class="table-cell table-th">I</div>
+          <!-- div#table-$@16.table-cell.table-td{$$@16}*15 -->
+          <div id="table-16" class="table-cell table-td">16</div>
+          <div id="table-17" class="table-cell table-td">17</div>
+          <div id="table-18" class="table-cell table-td">18</div>
+          <div id="table-19" class="table-cell table-td">19</div>
+          <div id="table-20" class="table-cell table-td">20</div>
+          <div id="table-21" class="table-cell table-td">21</div>
+          <div id="table-22" class="table-cell table-td">22</div>
+          <div id="table-23" class="table-cell table-td">23</div>
+          <div id="table-24" class="table-cell table-td">24</div>
+          <div id="table-25" class="table-cell table-td">25</div>
+          <div id="table-26" class="table-cell table-td">26</div>
+          <div id="table-27" class="table-cell table-td">27</div>
+          <div id="table-28" class="table-cell table-td">28</div>
+          <div id="table-29" class="table-cell table-td">29</div>
+          <div id="table-30" class="table-cell table-td">30</div>
+        </div>
+        <!-- N Row -->
+        <div id="bingo-N" class="table-tr">
+          <div id="table-N" class="table-cell table-th">N</div>
+          <!-- div#table-$@31.table-cell.table-td{$$@31}*15 -->
+          <div id="table-31" class="table-cell table-td">31</div>
+          <div id="table-32" class="table-cell table-td">32</div>
+          <div id="table-33" class="table-cell table-td">33</div>
+          <div id="table-34" class="table-cell table-td">34</div>
+          <div id="table-35" class="table-cell table-td">35</div>
+          <div id="table-36" class="table-cell table-td">36</div>
+          <div id="table-37" class="table-cell table-td">37</div>
+          <div id="table-38" class="table-cell table-td">38</div>
+          <div id="table-39" class="table-cell table-td">39</div>
+          <div id="table-40" class="table-cell table-td">40</div>
+          <div id="table-41" class="table-cell table-td">41</div>
+          <div id="table-42" class="table-cell table-td">42</div>
+          <div id="table-43" class="table-cell table-td">43</div>
+          <div id="table-44" class="table-cell table-td">44</div>
+          <div id="table-45" class="table-cell table-td">45</div>
+        </div>
+        <!-- G Row -->
+        <div id="bingo-G" class="table-tr">
+          <div id="table-G" class="table-cell table-th">G</div>
+          <!-- div#table-$@46.table-cell.table-td{$$@46}*15 -->
+          <div id="table-46" class="table-cell table-td">46</div>
+          <div id="table-47" class="table-cell table-td">47</div>
+          <div id="table-48" class="table-cell table-td">48</div>
+          <div id="table-49" class="table-cell table-td">49</div>
+          <div id="table-50" class="table-cell table-td">50</div>
+          <div id="table-51" class="table-cell table-td">51</div>
+          <div id="table-52" class="table-cell table-td">52</div>
+          <div id="table-53" class="table-cell table-td">53</div>
+          <div id="table-54" class="table-cell table-td">54</div>
+          <div id="table-55" class="table-cell table-td">55</div>
+          <div id="table-56" class="table-cell table-td">56</div>
+          <div id="table-57" class="table-cell table-td">57</div>
+          <div id="table-58" class="table-cell table-td">58</div>
+          <div id="table-59" class="table-cell table-td">59</div>
+          <div id="table-60" class="table-cell table-td">60</div>
+        </div>
+        <!-- O Row -->
+        <div id="bingo-O" class="table-tr">
+          <div id="table-O" class="table-cell table-th">O</div>
+          <!-- div#table-$@61.table-cell.table-td{$$@61}*15 -->
+          <div id="table-61" class="table-cell table-td">61</div>
+          <div id="table-62" class="table-cell table-td">62</div>
+          <div id="table-63" class="table-cell table-td">63</div>
+          <div id="table-64" class="table-cell table-td">64</div>
+          <div id="table-65" class="table-cell table-td">65</div>
+          <div id="table-66" class="table-cell table-td">66</div>
+          <div id="table-67" class="table-cell table-td">67</div>
+          <div id="table-68" class="table-cell table-td">68</div>
+          <div id="table-69" class="table-cell table-td">69</div>
+          <div id="table-70" class="table-cell table-td">70</div>
+          <div id="table-71" class="table-cell table-td">71</div>
+          <div id="table-72" class="table-cell table-td">72</div>
+          <div id="table-73" class="table-cell table-td">73</div>
+          <div id="table-74" class="table-cell table-td">74</div>
+          <div id="table-75" class="table-cell table-td">75</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
