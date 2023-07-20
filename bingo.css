@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@900&display=swap');
 
 /* Base */
+html {
+  background-color: #a1ccd1;
+}
+
 body {
   font-family: 'Lexend', sans-serif;
 }
@@ -25,12 +29,15 @@ body {
   font-size: 41px;
   line-height: 45px;
   font-weight: 700;
+  background-color: #ffffff;
 }
 
 /* Table */
 #bingo-table {
-  width: 100%;
+  width: 98%;
   display: table;
+  background-color: #ffffff;
+  margin: 0 auto;
 }
 
 #table-body {
@@ -62,4 +69,37 @@ body {
 
 .is-active {
   color: #000000;
+  border-color: #000000;
+  background-color: rgb(185, 226, 185);
 }
+
+/* Buttons */
+#bingo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  margin: 40px;
+}
+
+.btn {
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+#btn-clear {
+  background-color: #f44336;
+}
+
+#btn-raffle {
+  background-color: #008CBA;
+}
+
